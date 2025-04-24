@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOSHIPOTOfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 背景用 -->
+  <div id="bgCanvasIntro" style="background:black;"></div>
+  <div id="bgCanvasMain"></div>
+
+  <!-- Intro Page -->
+  <section id="intro" class="fullscreen center">
+    <h1 class="neon-title">YOSHIPOTOfolio</h1>
+    <button class="enter-button" onclick="startLoading()">Enter</button>
+  </section>
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="fullscreen center" style="display: none;">
+    <h2 class="loading-text">Loading...</h2>
+  </div>
+
+  <!-- HOME Page -->
+  <section id="homepage" class="fullscreen center" style="display: none;">
+    <div class="white-overlay"></div>
+    <div class="overlay-text">
+      <span class="left">Visualize logic</span>
+      <span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="right">design with motion</span>
+    </div>
+    <nav class="nav-homepage">
+      <ul class="nav-menu-homepage">
+        <li><a href="#page-work">WORK</a></li>
+        <li><a href="#page-contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <main id="mainContent" style="display: none;">
+
+    <!-- WORKセクション -->
+    <section id="page-work" class="page-section">
+      <nav class="nav-section nav-work">
+        <div class="nav-toggle" onclick="toggleNav('work')">☰</div>
+        <ul class="nav-menu nav-menu-work" id="navMenuWork">
+          <li><a href="#homepage" onclick="toggleNav('work')">HOME</a></li>
+          <li><a href="#page-work" onclick="toggleNav('contact')">WORK</a></li>
+          <li><a href="#page-contact" onclick="toggleNav('work')">CONTACT</a></li>
+        </ul>
+      </nav>
+      <div class="work">
+        <div class="work section-content">
+          <h2 class="section-title">WORK PROJECTs</h2>
+
+          <div class="work-grid">
+            <div class="work-card" onclick="toggleDetail(this)">
+              <h3>Project 01</h3>
+              <div class="project-detail">
+                <p>This is a detailed explanation of Project #01.</p>
+              </div>
+            </div>
+            <div class="work-card" onclick="toggleDetail(this)">
+              <h3>Project 02</h3>
+              <div class="project-detail">
+                <p>This is a detailed explanation of Project #02.</p>
+              </div>
+            </div>
+            <div class="work-card" onclick="toggleDetail(this)">
+              <h3>Project 02</h3>
+              <div class="project-detail">
+                <p>This is a detailed explanation of Project #02.</p>
+              </div>
+            </div>
+            <div class="work-card" onclick="toggleDetail(this)">
+              <h3>Project 02</h3>
+              <div class="project-detail">
+                <p>This is a detailed explanation of Project #02.</p>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <!-- CONTACTセクション -->
+    <section id="page-contact" class="page-section">
+      <nav class="nav-section nav-contact">
+        <div class="nav-toggle" onclick="toggleNav('contact')">☰</div>
+        <ul class="nav-menu nav-menu-contact" id="navMenuContact">
+          <li><a href="#homepage" onclick="toggleNav('contact')">HOME</a></li>
+          <li><a href="#page-work" onclick="toggleNav('contact')">WORK</a></li>
+          <li><a href="#page-contact" onclick="toggleNav('work')">CONTACT</a></li>
+        </ul>
+      </nav>
+      <div class="contact-form">
+        <h2 class="section-title">Contact Me</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+  <!-- 外部ライブラリ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+
+  <!-- mainスクリプト -->
+  <script src="script.js"></script>
+</body>
+
+</html>

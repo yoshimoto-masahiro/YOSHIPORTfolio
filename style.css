@@ -1,0 +1,401 @@
+/* ===== リセット＆共通設定 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Orbitron', sans-serif;
+  height: 100%;
+}
+
+#intro {
+  background-color: black;
+}
+
+.fullscreen {
+  height: 100vh;
+  width: 100vw;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ===== タイトル（ネオン） ===== */
+.neon-title {
+  font-size: 3rem;
+  color: #00ffe0;
+  text-shadow:
+    0 0 5px #00ffe0,
+    0 0 10px #00ffe0,
+    0 0 20px #00ffe0,
+    0 0 40px #0ff,
+    0 0 80px #0ff;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #00ffe0,
+      0 0 10px #00ffe0,
+      0 0 20px #00ffe0,
+      0 0 40px #0ff,
+      0 0 80px #0ff;
+  }
+
+  20%,
+  24%,
+  55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+.enter-button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: none;
+  border: 2px solid #00ffe0;
+  color: #00ffe0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enter-button:hover {
+  background: #00ffe0;
+  color: #000;
+  box-shadow: 0 0 15px #00ffe0;
+}
+
+.loading-text {
+  font-size: 2rem;
+  color: #00ffe0;
+}
+
+/* ===== ロード完了ナビゲーション ===== */
+.nav-loading-complete {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.nav-menu-loading {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu-loading li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu-loading li a:hover {
+  background: black;
+  color: white;
+}
+
+/* ===== ホームページ（ロード完了画面） ===== */
+.nav-menu-homepage {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  /* 縦方向の間隔を調整 */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu-homepage {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu-homepage li a {
+  display: inline-block;
+  /* ← ボタン風 */
+  min-width: 150px;
+  /* 任意の幅 */
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  color: black;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu-homepage li a:hover {
+  background: transparent;
+  color: hwb(253 1% 15%);
+  text-shadow:
+    0 0 5px hsla(305, 91%, 18%, 0.195),
+    0 0 10px hsla(305, 91%, 18%, 0.195);
+}
+
+#homepage {
+  position: relative;
+  z-index: 10;
+  background: transparent;
+  text-align: center;
+}
+
+#bgCanvasMain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  /* 背景に配置 */
+  display: flex;
+}
+
+.white-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: -1;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.5;
+  z-index: -2;
+}
+
+.overlay-text span {
+  display: inline-block;
+}
+
+.spacer {
+  width: 28rem;
+}
+
+/* ============= メインページ ============= */
+/* ===== WORKページ用ナビゲーション ===== */
+.nav-work {
+  background: #fff;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-menu-work {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu-work li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu-work li a:hover {
+  background: black;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu-work {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .nav-menu-work.open {
+    display: flex;
+  }
+}
+
+/* ===== CONTACTページ用ナビゲーション ===== */
+.nav-contact {
+  background: #fff;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-menu-contact {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu-contact li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu-contact li a:hover {
+  background: black;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-menu-contact {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .nav-menu-contact.open {
+    display: flex;
+  }
+}
+
+/* ===== セクションコンテンツ共通 ===== */
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 3rem 0;
+  color: #111;
+}
+
+.section-content {
+  padding: 5rem 2rem;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 5rem;
+}
+
+.work-card {
+  background: #fff;
+  border: 1px solid #000;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.work-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #000;
+}
+
+.project-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0;
+}
+
+.work-card.expanded .project-detail {
+  max-height: 200px;
+  padding: 1rem 0 0.5rem 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 1rem;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #333;
+}
+
+/* ===== 汎用アニメーション ===== */
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnim 2s ease forwards;
+}
+
+@keyframes fadeInAnim {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
