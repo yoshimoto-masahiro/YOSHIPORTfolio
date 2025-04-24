@@ -42,47 +42,79 @@
   </section>
 
   <main id="mainContent" style="display: none;">
-
     <!-- WORKセクション -->
     <section id="page-work" class="page-section">
       <nav class="nav-section nav-work">
         <div class="nav-toggle" onclick="toggleNav('work')">☰</div>
         <ul class="nav-menu nav-menu-work" id="navMenuWork">
           <li><a href="#homepage" onclick="toggleNav('work')">HOME</a></li>
-          <li><a href="#page-work" onclick="toggleNav('contact')">WORK</a></li>
+          <li><a href="#page-work" onclick="toggleNav('work')">WORK</a></li>
           <li><a href="#page-contact" onclick="toggleNav('work')">CONTACT</a></li>
         </ul>
       </nav>
-      <div class="work">
-        <div class="work section-content">
-          <h2 class="section-title">WORK PROJECTs</h2>
-
-          <div class="work-grid">
-            <div class="work-card" onclick="toggleDetail(this)">
+  
+      <div class="work section-content">
+        <h2 class="section-title">WORK PROJECTs</h2>
+        <div class="work-grid">
+  
+          <!-- Project 01 -->
+          <div class="work-card">
+            <span class="border top"></span>
+            <span class="border right"></span>
+            <span class="border bottom"></span>
+            <span class="border left"></span>
+            <div class="work-card-inner" onclick="toggleDetail(this)">
               <h3>Project 01</h3>
               <div class="project-detail">
                 <p>This is a detailed explanation of Project #01.</p>
               </div>
             </div>
-            <div class="work-card" onclick="toggleDetail(this)">
-              <h3>Project 02</h3>
-              <div class="project-detail">
-                <p>This is a detailed explanation of Project #02.</p>
-              </div>
-            </div>
-            <div class="work-card" onclick="toggleDetail(this)">
-              <h3>Project 02</h3>
-              <div class="project-detail">
-                <p>This is a detailed explanation of Project #02.</p>
-              </div>
-            </div>
-            <div class="work-card" onclick="toggleDetail(this)">
+          </div>
+  
+          <!-- Project 02 -->
+          <div class="work-card">
+            <span class="border top"></span>
+            <span class="border right"></span>
+            <span class="border bottom"></span>
+            <span class="border left"></span>
+            <div class="work-card-inner" onclick="toggleDetail(this)">
               <h3>Project 02</h3>
               <div class="project-detail">
                 <p>This is a detailed explanation of Project #02.</p>
               </div>
             </div>
           </div>
+  
+          <!-- Project 03 -->
+          <div class="work-card">
+            <span class="border top"></span>
+            <span class="border right"></span>
+            <span class="border bottom"></span>
+            <span class="border left"></span>
+            <div class="work-card-inner" onclick="toggleDetail(this)">
+              <h3>Project 03</h3>
+              <div class="project-detail">
+                <p>This is a detailed explanation of Project #03.</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Project 04 -->
+          <div class="work-card">
+            <span class="border top"></span>
+            <span class="border right"></span>
+            <span class="border bottom"></span>
+            <span class="border left"></span>
+            <div class="work-card-inner" onclick="toggleDetail(this)">
+              <h3>Project 04</h3>
+              <div class="project-detail">
+                <p>This is a detailed explanation of Project #04.</p>
+              </div>
+            </div>
+          </div>
+  
+        </div> <!-- .work-grid -->
+      </div> <!-- .work.section-content -->
     </section>
 
     <!-- CONTACTセクション -->

@@ -322,6 +322,7 @@ body {
   padding: 5rem 2rem;
 }
 
+/* workcard内 */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -329,18 +330,119 @@ body {
 }
 
 .work-card {
-  background: #fff;
-  border: 1px solid #000;
+  position: relative;
   padding: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
   cursor: pointer;
+  overflow: hidden;
 }
 
-.work-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #000;
+.work-card .border {
+  position: absolute;
+  background: black;
+  display: block;
+  z-index: 2;
 }
 
+/* 上線 */
+.work-card .border.top {
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  animation: none;
+}
+
+/* 下線 */
+.work-card .border.bottom {
+  bottom: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  animation: none;
+}
+
+/* 左線 */
+.work-card .border.left {
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  animation: none;
+}
+
+/* 右線 */
+.work-card .border.right {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 0;
+  animation: none;
+}
+
+/* ホバー時に順番に実行 */
+.work-card:hover .border.top {
+  animation: borderTop 0.3s forwards;
+}
+
+.work-card:hover .border.right {
+  animation: borderRight 0.3s 0.3s forwards;
+}
+
+.work-card:hover .border.bottom {
+  animation: borderBottom 0.3s 0.6s forwards;
+}
+
+.work-card:hover .border.left {
+  animation: borderLeft 0.3s 0.9s forwards;
+}
+
+/* アニメーション定義 */
+@keyframes borderTop {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.3;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes borderLeft {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes borderBottom {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes borderRight {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+/* project-detail内 */
 .project-detail {
   max-height: 0;
   overflow: hidden;
