@@ -105,15 +105,6 @@ gsap.utils.toArray(".contact-form input, .contact-form textarea").forEach((el, i
   });
 });
 
-// WORKカード展開トグル
-function toggleDetail(card) {
-  const allCards = document.querySelectorAll(".work-card");
-  allCards.forEach(c => {
-    if (c !== card) c.classList.remove("expanded");
-  });
-  card.classList.toggle("expanded");
-}
-
 // ハンバーガーメニュー制御（WORK, CONTACT共通）
 function toggleNav(section = "work") {
   const menuId = section === "contact" ? "navMenuContact" : "navMenuWork";

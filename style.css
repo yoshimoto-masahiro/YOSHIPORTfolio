@@ -444,15 +444,17 @@ body {
 
 /* project-detail内 */
 .project-detail {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none; /* マウスイベントを無効化しておく */
 }
 
-.work-card.expanded .project-detail {
-  max-height: 200px;
-  padding: 1rem 0 0.5rem 0;
+/* work-card にホバーしたとき、project-detailを見せる */
+.work-card:hover .project-detail {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* マウスイベント復活（必要なら） */
 }
 
 .contact-form {
