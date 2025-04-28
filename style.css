@@ -329,15 +329,22 @@ body {
   gap: 5rem;
 }
 
-.work-card {
+.work-card1,
+.work-card2,
+.work-card3,
+.work-card4 {
   position: relative;
   padding: 1rem;
   background: #fff;
   cursor: pointer;
   overflow: hidden;
+  transition: transform 0.4s ease;
 }
 
-.work-card .border {
+.work-card1 .border,
+.work-card2 .border,
+.work-card3 .border,
+.work-card4 .border {
   position: absolute;
   background: black;
   display: block;
@@ -345,7 +352,10 @@ body {
 }
 
 /* 上線 */
-.work-card .border.top {
+.work-card1 .border.top,
+.work-card2 .border.top,
+.work-card3 .border.top,
+.work-card4 .border.top {
   top: 0;
   left: 0;
   height: 2px;
@@ -354,7 +364,10 @@ body {
 }
 
 /* 下線 */
-.work-card .border.bottom {
+.work-card1 .border.bottom,
+.work-card2 .border.bottom,
+.work-card3 .border.bottom,
+.work-card4 .border.bottom {
   bottom: 0;
   right: 0;
   height: 2px;
@@ -363,7 +376,10 @@ body {
 }
 
 /* 左線 */
-.work-card .border.left {
+.work-card1 .border.left,
+.work-card2 .border.left,
+.work-card3 .border.left,
+.work-card4 .border.left {
   bottom: 0;
   left: 0;
   width: 2px;
@@ -372,7 +388,10 @@ body {
 }
 
 /* 右線 */
-.work-card .border.right {
+.work-card1 .border.right,
+.work-card2 .border.right,
+.work-card3 .border.right,
+.work-card4 .border.right {
   top: 0;
   right: 0;
   width: 2px;
@@ -381,19 +400,31 @@ body {
 }
 
 /* ホバー時に順番に実行 */
-.work-card:hover .border.top {
+.work-card1:hover .border.top,
+.work-card2:hover .border.top,
+.work-card3:hover .border.top,
+.work-card4:hover .border.top {
   animation: borderTop 0.3s forwards;
 }
 
-.work-card:hover .border.right {
+.work-card1:hover .border.right,
+.work-card2:hover .border.right,
+.work-card3:hover .border.right,
+.work-card4:hover .border.right {
   animation: borderRight 0.3s 0.3s forwards;
 }
 
-.work-card:hover .border.bottom {
+.work-card1:hover .border.bottom,
+.work-card2:hover .border.bottom,
+.work-card3:hover .border.bottom,
+.work-card4:hover .border.bottom {
   animation: borderBottom 0.3s 0.6s forwards;
 }
 
-.work-card:hover .border.left {
+.work-card1:hover .border.left,
+.work-card2:hover .border.left,
+.work-card3:hover .border.left,
+.work-card4:hover .border.left {
   animation: borderLeft 0.3s 0.9s forwards;
 }
 
@@ -451,7 +482,10 @@ body {
 }
 
 /* work-card にホバーしたとき、project-detailを見せる */
-.work-card:hover .project-detail {
+.work-card1:hover .project-detail,
+.work-card2:hover .project-detail,
+.work-card3:hover .project-detail,
+.work-card4:hover .project-detail {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto; /* マウスイベント復活（必要なら） */
