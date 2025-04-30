@@ -245,12 +245,20 @@ body {
   color: white;
 }
 
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* スマホ時のみハンバーガー表示、ナビメニューは非表示 */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
   }
 
-  .nav-menu-work {
+  .nav-menu-work,
+  .nav-menu-contact {
     display: none;
     flex-direction: column;
     background: #fff;
@@ -258,9 +266,45 @@ body {
     width: 100%;
   }
 
-  .nav-menu-work.open {
+  .nav-menu-work.open,
+  .nav-menu-contact.open {
     display: flex;
   }
+}
+
+/* PC時は常に表示＆ハンバーガーは非表示 */
+@media (min-width: 769px) {
+
+  .nav-menu-work,
+  .nav-menu-contact {
+    display: flex !important;
+    flex-direction: row;
+    background: none;
+    padding: 0;
+    width: auto;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* 全体でいずれかのカードが open 状態のとき、他カードを半透明に */
+.work-grid.has-open .work-card1:not(.open-card),
+.work-grid.has-open .work-card2:not(.open-card),
+.work-grid.has-open .work-card3:not(.open-card),
+.work-grid.has-open .work-card4:not(.open-card) {
+  opacity: 0.02;
+  transition: opacity 0.4s ease;
+  pointer-events: none; /* クリック不可 */
+}
+
+/* 選択中カードのタイトル色変更 */
+.work-card1.open-card h3,
+.work-card2.open-card h3,
+.work-card3.open-card h3,
+.work-card4.open-card h3 {
+  color: #00aaff;
 }
 
 /* ===== CONTACTページ用ナビゲーション ===== */
@@ -327,6 +371,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 5rem;
+  grid-auto-rows: auto;
+  /* ← 可変サイズに対応 */
 }
 
 .work-card1,
@@ -338,7 +384,8 @@ body {
   background: #fff;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.4s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 1;
 }
 
 .work-card1 .border,
@@ -399,32 +446,49 @@ body {
   animation: none;
 }
 
-/* ホバー時に順番に実行 */
-.work-card1:hover .border.top,
-.work-card2:hover .border.top,
-.work-card3:hover .border.top,
-.work-card4:hover .border.top {
+/* 選択中のカード：拡大＆前面 */
+.work-card1.open-card,
+.work-card2.open-card,
+.work-card3.open-card,
+.work-card4.open-card {
+  z-index: 5;
+  /* 選択されたカードは前面 */
+  transform: scale(1.04);
+  /* 拡大 */
+  display: flex;
+  /* 通常の block 表示に変更 */
+  grid-column: span 2;
+  /* グリッドをまたがる（任意） */
+  width: 100%;
+  padding: 2rem;
+}
+
+/* ホバーアニメーション（選択中カードだけ） */
+.work-card1.open-card:hover .border.top,
+.work-card2.open-card:hover .border.top,
+.work-card3.open-card:hover .border.top,
+.work-card4.open-card:hover .border.top {
   animation: borderTop 0.3s forwards;
 }
 
-.work-card1:hover .border.right,
-.work-card2:hover .border.right,
-.work-card3:hover .border.right,
-.work-card4:hover .border.right {
+.work-card1.open-card:hover .border.right,
+.work-card2.open-card:hover .border.right,
+.work-card3.open-card:hover .border.right,
+.work-card4.open-card:hover .border.right {
   animation: borderRight 0.3s 0.3s forwards;
 }
 
-.work-card1:hover .border.bottom,
-.work-card2:hover .border.bottom,
-.work-card3:hover .border.bottom,
-.work-card4:hover .border.bottom {
+.work-card1.open-card:hover .border.bottom,
+.work-card2.open-card:hover .border.bottom,
+.work-card3.open-card:hover .border.bottom,
+.work-card4.open-card:hover .border.bottom {
   animation: borderBottom 0.3s 0.6s forwards;
 }
 
-.work-card1:hover .border.left,
-.work-card2:hover .border.left,
-.work-card3:hover .border.left,
-.work-card4:hover .border.left {
+.work-card1.open-card:hover .border.left,
+.work-card2.open-card:hover .border.left,
+.work-card3.open-card:hover .border.left,
+.work-card4.open-card:hover .border.left {
   animation: borderLeft 0.3s 0.9s forwards;
 }
 
@@ -434,9 +498,11 @@ body {
     width: 0;
     opacity: 0;
   }
+
   60% {
     opacity: 0.3;
   }
+
   100% {
     width: 100%;
     opacity: 1;
@@ -473,22 +539,21 @@ body {
   }
 }
 
-/* project-detail内 */
 .project-detail {
+  max-height: 0;
   opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
   transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none; /* マウスイベントを無効化しておく */
+  pointer-events: none;
 }
 
-/* work-card にホバーしたとき、project-detailを見せる */
-.work-card1:hover .project-detail,
-.work-card2:hover .project-detail,
-.work-card3:hover .project-detail,
-.work-card4:hover .project-detail {
+.project-detail.open {
+  max-height: 500px;
+  /* 高さはコンテンツ量に応じて調整 */
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto; /* マウスイベント復活（必要なら） */
+  pointer-events: auto;
 }
 
 .contact-form {

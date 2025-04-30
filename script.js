@@ -133,11 +133,18 @@ function showPageSectionById(id) {
   const sections = document.querySelectorAll(".page-section");
   sections.forEach(sec => sec.style.display = "none");
 
+  // すべてのアコーディオン状態をリセット
+  document.querySelectorAll('.project-detail').forEach(el => el.classList.remove('open'));
+  document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4')
+    .forEach(card => card.classList.remove('open-card'));
+
+
   const target = document.getElementById(id);
   if (target) {
     target.style.display = "block";
   }
 }
+
 //たまに動かないのでDOMはこのままでイベント発火させる。
 document.addEventListener("DOMContentLoaded", () => {
   /// WORK・CONTACTページのナビゲーションリンクも動作させる
@@ -159,5 +166,46 @@ document.addEventListener("DOMContentLoaded", () => {
         showPageSectionById(targetId);
       }
     });
+  });
+});
+
+// アコーディオン：1つだけ展開方式（開いてるカードだけホバー有効 + 非選択カード半透明制御）
+document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4').forEach(card => {
+  const title = card.querySelector('h3');
+  const detail = card.querySelector('.project-detail');
+  const grid = document.querySelector('.work-grid');
+  const originalCardOrder = Array.from(grid.children);
+  title.style.cursor = 'pointer';
+
+  title.addEventListener('click', () => {
+    const isOpen = detail.classList.contains('open');
+  
+    // すべて閉じる
+    document.querySelectorAll('.project-detail').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4')
+      .forEach(c => c.classList.remove('open-card'));
+  
+    if (!isOpen) {
+      // 開くとき
+      detail.classList.add('open');
+      card.classList.add('open-card');
+      grid.classList.add('has-open');
+  
+      // ✅ 選択カードを一番上（先頭）に移動
+      grid.prepend(card);
+    } else {
+      // ✅ 選択解除された → 順番を初期に戻す
+      originalCardOrder.forEach(c => grid.appendChild(c));
+      grid.classList.remove('has-open');
+    }
+  
+    // 念のため「どれも開いてないか」チェック
+    const anyOpen = document.querySelector('.project-detail.open');
+    if (!anyOpen) {
+      grid.classList.remove('has-open');
+  
+      // ✅ 全て閉じた場合：初期順に戻す
+      originalCardOrder.forEach(c => grid.appendChild(c));
+    }
   });
 });
