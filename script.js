@@ -107,9 +107,20 @@ gsap.utils.toArray(".contact-form input, .contact-form textarea").forEach((el, i
 
 // ハンバーガーメニュー制御（WORK, CONTACT共通）
 function toggleNav(section = "work") {
-  const menuId = section === "contact" ? "navMenuContact" : "navMenuWork"; "navMenuAbout";
+  let menuId = "";
+
+  if (section === "work") {
+    menuId = "navMenuWork";
+  } else if (section === "contact") {
+    menuId = "navMenuContact";
+  } else if (section === "about") {
+    menuId = "navMenuAbout";
+  }
+
   const nav = document.getElementById(menuId);
-  nav.classList.toggle("open");
+  if (nav) {
+    nav.classList.toggle("open");
+  }
 }
 
 // ホームページ → メインページ遷移時イベント
