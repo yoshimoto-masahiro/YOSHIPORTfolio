@@ -35,6 +35,7 @@
     </div>
     <nav class="nav-homepage">
       <ul class="nav-menu-homepage">
+        <li><a href="#page-about">ABOUT</a></li>
         <li><a href="#page-work">WORK</a></li>
         <li><a href="#page-contact">CONTACT</a></li>
       </ul>
@@ -48,6 +49,7 @@
         <div class="nav-toggle" onclick="toggleNav('work')">☰</div>
         <ul class="nav-menu nav-menu-work" id="navMenuWork">
           <li><a href="#homepage" onclick="toggleNav('work')">HOME</a></li>
+          <li><a href="#page-about" onclick="toggleNav('about')">ABOUT</a></li>
           <li><a href="#page-work" onclick="toggleNav('work')">WORK</a></li>
           <li><a href="#page-contact" onclick="toggleNav('work')">CONTACT</a></li>
         </ul>
@@ -125,6 +127,105 @@
         </div> <!-- .work-grid -->
       </div> <!-- .work.section-content -->
     </section>
+    <!-- ABOUTセクション -->
+    <section id="page-about" class="page-section" style="display: none;">
+      <nav class="nav-section nav-about">
+        <div class="nav-toggle" onclick="toggleNav('about')">☰</div>
+        <ul class="nav-menu nav-menu-about" id="navMenuAbout">
+          <li><a href="#homepage" onclick="toggleNav('about')">HOME</a></li>
+          <li><a href="#page-about" onclick="toggleNav('about')">ABOUT</a></li>
+          <li><a href="#page-work" onclick="toggleNav('about')">WORK</a></li>
+          <li><a href="#page-contact" onclick="toggleNav('about')">CONTACT</a></li>
+        </ul>
+      </nav>
+      <div class="section-content about-section">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-header center">
+          <div class="about-photo">
+            <img src="profile.png" alt="My Photo" />
+          </div>
+          <a href="https://github.com/Yoshimoto-masahiro" target="_blank" class="github-link">
+            <img src="icons/github-icon.svg" alt="GitHub" class="github-icon" />
+          </a>
+          <div class="certification-badges">
+            <img src="icons/Japan_Gold_Java_SE_11_Programmer_Badge.png" alt="Java SE 11 Gold" />
+            <img src="icons/Japan_Master_Silver_Database_Admin_Badge.png" alt="Silver DBA" />
+            <img src="icons/Database_Foundations_Associate.png" alt="Database_Foundations_Associate" />
+            <img src="icons/WebCREATER_expert.png" alt="WebCREATER_expert" />
+            <img src="icons/photoshop_bagge.png" alt="photoshop_bagge" />
+          </div>
+        </div>
+
+        <!-- テキスト部分下部に表示 -->
+        <div class="about-text">
+          <p>Hello! I'm a creative developer and designer passionate about visual storytelling, motion design, and
+            interactive experiences.</p>
+          <p>This portfolio showcases my selected works, skills, and design philosophy.</p>
+          <h3>Skills</h3>
+
+          <!--  2列構成①：Languages & Frameworks -->
+          <div class="skill-category-pair">
+            <div class="skill-category">
+              <h4>Languages</h4>
+              <ul class="skill-list">
+                <li><img src="icons/java.svg" alt="Java" />Java</li>
+                <li><img src="icons/python.svg" alt="Python" />Python</li>
+                <li><img src="icons/html5.svg" alt="HTML5" />HTML5</li>
+                <li><img src="icons/css3.svg" alt="CSS3" />CSS3</li>
+                <li><img src="icons/javascript.svg" alt="JavaScript" />JavaScript</li>
+                <li><img src="icons/c.svg" alt="C" />C</li>
+                <li><img src="icons/c++.svg" alt="C++" />C++</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h4>Frameworks / Libraries</h4>
+              <ul class="skill-list">
+                <li><img src="icons/springboot.svg" alt="Spring Boot" />Spring Boot</li>
+                <li><img src="icons/gsap.svg" alt="GSAP" />GSAP</li>
+                <li><img src="icons/jquery.svg" alt="jquery" />jQuery</li>
+                <li><img src="icons/threejs.svg" alt="Three.js" />Three.js</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2列構成②：Databases & Tools -->
+          <div class="skill-category-pair">
+            <div class="skill-category">
+              <h4>Databases</h4>
+              <ul class="skill-list">
+                <li><img src="icons/mysql.svg" alt="MySQL" />MySQL</li>
+                <li><img src="icons/oracledb.svg" alt="OracleDB" />OracleDB</li>
+                <li><img src="icons/mariadb.svg" alt="MySQL" />MariaDB</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h4>Tools & Platforms</h4>
+              <ul class="skill-list">
+                <li><img src="icons/Google_Apps_Script.svg" alt="Google_Apps_Script" />Google Apps Script</li>
+                <li><img src="icons/chatgpt.svg" alt="ChatGPT" />ChatGPT</li>
+                <li><img src="icons/aws.svg" alt="AWS" />AWS</li>
+                <li><img src="icons/subversion.svg" alt="subversion" />Subversion</li>
+                <li><img src="icons/photoshop.svg" alt="Photoshop" />Photoshop</li>
+                <li><img src="icons/illustrator.svg" alt="Illustrator" />Illustrator</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 最後は単独列：OS -->
+          <div class="skill-category-pair">
+            <div class="skill-category">
+              <h4>Operating Systems</h4>
+              <ul class="skill-list">
+                <li><img src="icons/microsoftwindows.svg" alt="Windows" />Windows</li>
+                <li><img src="icons/tux.svg" alt="Linux" />Linux</li>
+                <li><img src="icons/red-hat.svg" alt="RHEL" />RHEL</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- CONTACTセクション -->
     <section id="page-contact" class="page-section">
@@ -132,6 +233,7 @@
         <div class="nav-toggle" onclick="toggleNav('contact')">☰</div>
         <ul class="nav-menu nav-menu-contact" id="navMenuContact">
           <li><a href="#homepage" onclick="toggleNav('contact')">HOME</a></li>
+          <li><a href="#page-about" onclick="toggleNav('about')">ABOUT</a></li>
           <li><a href="#page-work" onclick="toggleNav('contact')">WORK</a></li>
           <li><a href="#page-contact" onclick="toggleNav('work')">CONTACT</a></li>
         </ul>

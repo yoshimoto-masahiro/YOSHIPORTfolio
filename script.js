@@ -107,7 +107,7 @@ gsap.utils.toArray(".contact-form input, .contact-form textarea").forEach((el, i
 
 // ハンバーガーメニュー制御（WORK, CONTACT共通）
 function toggleNav(section = "work") {
-  const menuId = section === "contact" ? "navMenuContact" : "navMenuWork";
+  const menuId = section === "contact" ? "navMenuContact" : "navMenuWork"; "navMenuAbout";
   const nav = document.getElementById(menuId);
   nav.classList.toggle("open");
 }

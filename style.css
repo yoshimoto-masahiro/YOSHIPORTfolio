@@ -296,7 +296,8 @@ body {
 .work-grid.has-open .work-card4:not(.open-card) {
   opacity: 0.02;
   transition: opacity 0.4s ease;
-  pointer-events: none; /* クリック不可 */
+  pointer-events: none;
+  /* クリック不可 */
 }
 
 /* 選択中カードのタイトル色変更 */
@@ -305,6 +306,221 @@ body {
 .work-card3.open-card h3,
 .work-card4.open-card h3 {
   color: #00aaff;
+}
+
+/* ===== ABOUTページ用ナビゲーション ===== */
+.nav-about {
+  background: #fff;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-menu-about {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu-about li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu-about li a:hover {
+  background: black;
+  color: white;
+}
+
+.github-link {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.github-icon {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.github-icon:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .nav-menu-about {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .nav-menu-about.open {
+    display: flex;
+  }
+}
+
+/* ===== About Header（写真とバッジ） ===== */
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.about-photo img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 255, 224, 0.3);
+}
+
+.certification-badges {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.certification-badges img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== About 本文 ===== */
+.about-text {
+  max-width: 1000px;
+  font-size: 1.1rem;
+  line-height: 2;
+  color: #111;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-text h3 {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.about-text h4 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #222;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+/* ===== Skillsカテゴリを2列にする新しい構造 ===== */
+.skill-category-pair {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.skill-category {
+  flex: 1 1 45%;
+}
+
+.skill-category h4 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+  color: #222;
+}
+
+/* 各カテゴリ内のスキルリスト */
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.skill-list img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== 🟥 旧レイアウト（2列分けしていたstyle）コメントアウト済み ===== */
+/*
+.skill-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.skill-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  flex: 1 1 45%;
+  max-width: 45%;
+}
+*/
+
+/* ===== レスポンシブ：スマホでは1列に ===== */
+@media (max-width: 768px) {
+  .about-photo img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .certification-badges img {
+    width: 60px;
+  }
+
+  .skill-category-pair {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .skill-category {
+    flex: none;
+    width: 100%;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
 }
 
 /* ===== CONTACTページ用ナビゲーション ===== */
