@@ -125,17 +125,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  /* 縦方向の間隔を調整 */
-  padding: 0;
-  margin: 0;
-}
-
-.nav-menu-homepage {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+  gap: 2rem; /* 縦方向の間隔を調整 */
   padding: 0;
   margin: 0;
 }
@@ -175,8 +165,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -3;
-  /* 背景に配置 */
+  z-index: -3; /* 背景に配置 */
   display: flex;
 }
 
@@ -228,7 +217,7 @@ body {
   }
 
   .overlay-text .left {
-    margin-bottom: 30rem; /* このスペースで上下を離す */
+    margin-bottom: 27rem; /* このスペースで上下を離す */
   }
 
   .overlay-text .spacer {
@@ -322,18 +311,23 @@ body {
 .work-grid.has-open .work-card1:not(.open-card),
 .work-grid.has-open .work-card2:not(.open-card),
 .work-grid.has-open .work-card3:not(.open-card),
-.work-grid.has-open .work-card4:not(.open-card) {
+.work-grid.has-open .work-card4:not(.open-card),
+.work-grid.has-open .work-card5:not(.open-card),
+.work-grid.has-open .work-card6:not(.open-card),
+.work-grid.has-open .work-card7:not(.open-card) {
   opacity: 0.02;
   transition: opacity 0.4s ease;
-  pointer-events: none;
-  /* クリック不可 */
+  pointer-events: none; /* クリック不可 */
 }
 
 /* 選択中カードのタイトル色変更 */
 .work-card1.open-card h3,
 .work-card2.open-card h3,
 .work-card3.open-card h3,
-.work-card4.open-card h3 {
+.work-card4.open-card h3,
+.work-card5.open-card h3,
+.work-card6.open-card h3,
+.work-card7.open-card h3 {
   color: #00aaff;
 }
 
@@ -498,29 +492,6 @@ body {
   height: 24px;
 }
 
-/* ===== 🟥 旧レイアウト（2列分けしていたstyle）コメントアウト済み ===== */
-/*
-.skill-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1rem;
-  justify-content: space-between;
-}
-
-.skill-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-  flex: 1 1 45%;
-  max-width: 45%;
-}
-*/
-
 /* ===== レスポンシブ：スマホでは1列に ===== */
 @media (max-width: 768px) {
   .about-photo img {
@@ -623,7 +594,10 @@ body {
 .work-card1,
 .work-card2,
 .work-card3,
-.work-card4 {
+.work-card4,
+.work-card5,
+.work-card6,
+.work-card7 {
   position: relative;
   padding: 1rem;
   background: #fff;
@@ -636,7 +610,10 @@ body {
 .work-card1 .border,
 .work-card2 .border,
 .work-card3 .border,
-.work-card4 .border {
+.work-card4 .border,
+.work-card5 .border,
+.work-card6 .border,
+.work-card7 .border {
   position: absolute;
   background: black;
   display: block;
@@ -647,7 +624,10 @@ body {
 .work-card1 .border.top,
 .work-card2 .border.top,
 .work-card3 .border.top,
-.work-card4 .border.top {
+.work-card4 .border.top,
+.work-card5 .border.top,
+.work-card6 .border.top,
+.work-card7 .border.top {
   top: 0;
   left: 0;
   height: 2px;
@@ -659,7 +639,10 @@ body {
 .work-card1 .border.bottom,
 .work-card2 .border.bottom,
 .work-card3 .border.bottom,
-.work-card4 .border.bottom {
+.work-card4 .border.bottom,
+.work-card5 .border.bottom,
+.work-card6 .border.bottom,
+.work-card7 .border.bottom {
   bottom: 0;
   right: 0;
   height: 2px;
@@ -671,7 +654,10 @@ body {
 .work-card1 .border.left,
 .work-card2 .border.left,
 .work-card3 .border.left,
-.work-card4 .border.left {
+.work-card4 .border.left,
+.work-card5 .border.left,
+.work-card6 .border.left,
+.work-card7 .border.left {
   bottom: 0;
   left: 0;
   width: 2px;
@@ -683,7 +669,10 @@ body {
 .work-card1 .border.right,
 .work-card2 .border.right,
 .work-card3 .border.right,
-.work-card4 .border.right {
+.work-card4 .border.right,
+.work-card5 .border.right,
+.work-card6 .border.right,
+.work-card7 .border.right {
   top: 0;
   right: 0;
   width: 2px;
@@ -695,7 +684,10 @@ body {
 .work-card1.open-card,
 .work-card2.open-card,
 .work-card3.open-card,
-.work-card4.open-card {
+.work-card4.open-card,
+.work-card5.open-card,
+.work-card6.open-card,
+.work-card7.open-card {
   z-index: 5;
   /* 選択されたカードは前面 */
   transform: scale(1.04);
@@ -712,28 +704,40 @@ body {
 .work-card1.open-card:hover .border.top,
 .work-card2.open-card:hover .border.top,
 .work-card3.open-card:hover .border.top,
-.work-card4.open-card:hover .border.top {
+.work-card4.open-card:hover .border.top,
+.work-card5.open-card:hover .border.top,
+.work-card6.open-card:hover .border.top,
+.work-card7.open-card:hover .border.top {
   animation: borderTop 0.3s forwards;
 }
 
 .work-card1.open-card:hover .border.right,
 .work-card2.open-card:hover .border.right,
 .work-card3.open-card:hover .border.right,
-.work-card4.open-card:hover .border.right {
+.work-card4.open-card:hover .border.right,
+.work-card5.open-card:hover .border.right,
+.work-card6.open-card:hover .border.right,
+.work-card7.open-card:hover .border.right {
   animation: borderRight 0.3s 0.3s forwards;
 }
 
 .work-card1.open-card:hover .border.bottom,
 .work-card2.open-card:hover .border.bottom,
 .work-card3.open-card:hover .border.bottom,
-.work-card4.open-card:hover .border.bottom {
+.work-card4.open-card:hover .border.bottom,
+.work-card5.open-card:hover .border.bottom,
+.work-card6.open-card:hover .border.bottom,
+.work-card7.open-card:hover .border.bottom {
   animation: borderBottom 0.3s 0.6s forwards;
 }
 
 .work-card1.open-card:hover .border.left,
 .work-card2.open-card:hover .border.left,
 .work-card3.open-card:hover .border.left,
-.work-card4.open-card:hover .border.left {
+.work-card4.open-card:hover .border.left,
+.work-card5.open-card:hover .border.left,
+.work-card6.open-card:hover .border.left,
+.work-card7.open-card:hover .border.left {
   animation: borderLeft 0.3s 0.9s forwards;
 }
 
@@ -810,6 +814,19 @@ body {
   color: #000;
 }
 
+.thanks-page {
+  background: #000;
+  color: #00ffe0;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+.thanks-page p {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
 /* ===== 汎用アニメーション ===== */
 .fade-in {
   opacity: 0;
@@ -823,6 +840,17 @@ body {
 
   to {
     opacity: 1;
+  }
+}
+
+.fade-out {
+  opacity: 1;
+  animation: fadeOutAnim 0.5s ease forwards;
+}
+
+@keyframes fadeOutAnim {
+  to {
+    opacity: 0;
   }
 }
 

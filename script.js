@@ -18,7 +18,7 @@ function startLoading() {
 
       const complete = document.getElementById('homepage'); // ロード完了画面
       complete.style.display = 'flex';        // ロード完了画面を表示
-      complete.classList.add('fade-in');      // ✅ フェードインさせる
+      complete.classList.add('fade-in');      // フェードインさせる
       document.getElementById('bgCanvasMain').style.display = 'block'; // Three.js 背景表示
       initMainScene(); // Three.js 初期化
     }, 3000);
@@ -131,6 +131,9 @@ document.querySelectorAll('#homepage a').forEach(link => {
     // ホーム非表示
     document.getElementById('homepage').style.display = 'none';
     document.getElementById('mainContent').style.display = 'block';
+    const mainContent = document.getElementById('mainContent');
+    mainContent.classList.remove('fade-out');
+    mainContent.classList.add('fade-in');
     document.getElementById('bgCanvasMain').style.display = 'none';
 
     // クリック先リンクIDから表示対象セクションを判断
@@ -146,7 +149,7 @@ function showPageSectionById(id) {
 
   // すべてのアコーディオン状態をリセット
   document.querySelectorAll('.project-detail').forEach(el => el.classList.remove('open'));
-  document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4')
+  document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7')
     .forEach(card => card.classList.remove('open-card'));
 
 
@@ -173,6 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         document.getElementById('homepage').style.display = 'none';
         document.getElementById('mainContent').style.display = 'block';
+        const mainContent = document.getElementById('mainContent');
+        mainContent.classList.remove('fade-out');
+        mainContent.classList.add('fade-in');
         document.getElementById('bgCanvasMain').style.display = 'none';
         showPageSectionById(targetId);
       }
@@ -181,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // アコーディオン：1つだけ展開方式（開いてるカードだけホバー有効 + 非選択カード半透明制御）
-document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4').forEach(card => {
+document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7').forEach(card => {
   const title = card.querySelector('h3');
   const detail = card.querySelector('.project-detail');
   const grid = document.querySelector('.work-grid');
@@ -190,32 +196,36 @@ document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4').
 
   title.addEventListener('click', () => {
     const isOpen = detail.classList.contains('open');
-  
+
     // すべて閉じる
     document.querySelectorAll('.project-detail').forEach(el => el.classList.remove('open'));
-    document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4')
+    document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7')
       .forEach(c => c.classList.remove('open-card'));
-  
+
     if (!isOpen) {
       // 開くとき
       detail.classList.add('open');
       card.classList.add('open-card');
       grid.classList.add('has-open');
-  
-      // ✅ 選択カードを一番上（先頭）に移動
+
+      //  選択カードを一番上（先頭）に移動
       grid.prepend(card);
+      window.scrollTo({
+        top: grid.offsetTop - 100, // 任意で調整（ヘッダー分）
+        behavior: 'smooth'
+      });
     } else {
-      // ✅ 選択解除された → 順番を初期に戻す
+      //  選択解除された → 順番を初期に戻す
       originalCardOrder.forEach(c => grid.appendChild(c));
       grid.classList.remove('has-open');
     }
-  
+
     // 念のため「どれも開いてないか」チェック
     const anyOpen = document.querySelector('.project-detail.open');
     if (!anyOpen) {
       grid.classList.remove('has-open');
-  
-      // ✅ 全て閉じた場合：初期順に戻す
+
+      // 全て閉じた場合：初期順に戻す
       originalCardOrder.forEach(c => grid.appendChild(c));
     }
   });
