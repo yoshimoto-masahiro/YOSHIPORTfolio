@@ -149,7 +149,7 @@ function showPageSectionById(id) {
 
   // すべてのアコーディオン状態をリセット
   document.querySelectorAll('.project-detail').forEach(el => el.classList.remove('open'));
-  document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7')
+  document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7, .work-card8, .work-card9')
     .forEach(card => card.classList.remove('open-card'));
 
 
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // アコーディオン：1つだけ展開方式（開いてるカードだけホバー有効 + 非選択カード半透明制御）
-document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7').forEach(card => {
+document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7, .work-card8, .work-card9').forEach(card => {
   const title = card.querySelector('h3');
   const detail = card.querySelector('.project-detail');
   const grid = document.querySelector('.work-grid');
@@ -199,7 +199,7 @@ document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .
 
     // すべて閉じる
     document.querySelectorAll('.project-detail').forEach(el => el.classList.remove('open'));
-    document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7')
+    document.querySelectorAll('.work-card1, .work-card2, .work-card3, .work-card4, .work-card5, .work-card6, .work-card7, .work-card8, .work-card9')
       .forEach(c => c.classList.remove('open-card'));
 
     if (!isOpen) {

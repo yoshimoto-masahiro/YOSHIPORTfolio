@@ -314,7 +314,9 @@ body {
 .work-grid.has-open .work-card4:not(.open-card),
 .work-grid.has-open .work-card5:not(.open-card),
 .work-grid.has-open .work-card6:not(.open-card),
-.work-grid.has-open .work-card7:not(.open-card) {
+.work-grid.has-open .work-card7:not(.open-card),
+.work-grid.has-open .work-card8:not(.open-card),
+.work-grid.has-open .work-card9:not(.open-card) {
   opacity: 0.02;
   transition: opacity 0.4s ease;
   pointer-events: none; /* クリック不可 */
@@ -327,7 +329,9 @@ body {
 .work-card4.open-card h3,
 .work-card5.open-card h3,
 .work-card6.open-card h3,
-.work-card7.open-card h3 {
+.work-card7.open-card h3,
+.work-card8.open-card h3,
+.work-card9.open-card h3 {
   color: #00aaff;
 }
 
@@ -597,7 +601,9 @@ body {
 .work-card4,
 .work-card5,
 .work-card6,
-.work-card7 {
+.work-card7,
+.work-card8,
+.work-card9 {
   position: relative;
   padding: 1rem;
   background: #fff;
@@ -613,7 +619,9 @@ body {
 .work-card4 .border,
 .work-card5 .border,
 .work-card6 .border,
-.work-card7 .border {
+.work-card7 .border,
+.work-card8 .border,
+.work-card9 .border {
   position: absolute;
   background: black;
   display: block;
@@ -627,7 +635,9 @@ body {
 .work-card4 .border.top,
 .work-card5 .border.top,
 .work-card6 .border.top,
-.work-card7 .border.top {
+.work-card7 .border.top,
+.work-card8 .border.top,
+.work-card9 .border.top {
   top: 0;
   left: 0;
   height: 2px;
@@ -642,7 +652,9 @@ body {
 .work-card4 .border.bottom,
 .work-card5 .border.bottom,
 .work-card6 .border.bottom,
-.work-card7 .border.bottom {
+.work-card7 .border.bottom,
+.work-card8 .border.bottom,
+.work-card9 .border.bottom {
   bottom: 0;
   right: 0;
   height: 2px;
@@ -657,7 +669,9 @@ body {
 .work-card4 .border.left,
 .work-card5 .border.left,
 .work-card6 .border.left,
-.work-card7 .border.left {
+.work-card7 .border.left,
+.work-card8 .border.left,
+.work-card9 .border.left {
   bottom: 0;
   left: 0;
   width: 2px;
@@ -672,7 +686,9 @@ body {
 .work-card4 .border.right,
 .work-card5 .border.right,
 .work-card6 .border.right,
-.work-card7 .border.right {
+.work-card7 .border.right,
+.work-card8 .border.right,
+.work-card9 .border.right {
   top: 0;
   right: 0;
   width: 2px;
@@ -687,7 +703,9 @@ body {
 .work-card4.open-card,
 .work-card5.open-card,
 .work-card6.open-card,
-.work-card7.open-card {
+.work-card7.open-card,
+.work-card8.open-card,
+.work-card9.open-card {
   z-index: 5;
   /* 選択されたカードは前面 */
   transform: scale(1.04);
@@ -707,7 +725,9 @@ body {
 .work-card4.open-card:hover .border.top,
 .work-card5.open-card:hover .border.top,
 .work-card6.open-card:hover .border.top,
-.work-card7.open-card:hover .border.top {
+.work-card7.open-card:hover .border.top,
+.work-card8.open-card:hover .border.top,
+.work-card9.open-card:hover .border.top {
   animation: borderTop 0.3s forwards;
 }
 
@@ -717,7 +737,9 @@ body {
 .work-card4.open-card:hover .border.right,
 .work-card5.open-card:hover .border.right,
 .work-card6.open-card:hover .border.right,
-.work-card7.open-card:hover .border.right {
+.work-card7.open-card:hover .border.right,
+.work-card8.open-card:hover .border.right,
+.work-card9.open-card:hover .border.right {
   animation: borderRight 0.3s 0.3s forwards;
 }
 
@@ -727,7 +749,9 @@ body {
 .work-card4.open-card:hover .border.bottom,
 .work-card5.open-card:hover .border.bottom,
 .work-card6.open-card:hover .border.bottom,
-.work-card7.open-card:hover .border.bottom {
+.work-card7.open-card:hover .border.bottom,
+.work-card8.open-card:hover .border.bottom,
+.work-card9.open-card:hover .border.bottom {
   animation: borderBottom 0.3s 0.6s forwards;
 }
 
@@ -737,7 +761,9 @@ body {
 .work-card4.open-card:hover .border.left,
 .work-card5.open-card:hover .border.left,
 .work-card6.open-card:hover .border.left,
-.work-card7.open-card:hover .border.left {
+.work-card7.open-card:hover .border.left,
+.work-card8.open-card:hover .border.left,
+.work-card9.open-card:hover .border.left {
   animation: borderLeft 0.3s 0.9s forwards;
 }
 
